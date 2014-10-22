@@ -1,17 +1,25 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Aula de PHP</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+</head>
 
+<body>
+
+<?php require_once ("menu2.php"); ?>
 
 <div class="container">
     <h1>Contatos</h1>
 </div>
 <hr>
+<form method="get">
 
     <div class="container">
 
 
-
         <div class="row">
 <div class="span6">
-    <form method="get">
     <table>
         <tr>
             <td valign="top">Nome</td><td><input type="text" name="nome"></td>
@@ -58,4 +66,6 @@ alert(\"Preencha os campos.\");
     </div>
 </div>
 </div>
-
+<?php include ("rodape.php"); ?>
+</body>
+</html>
