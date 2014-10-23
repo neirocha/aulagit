@@ -43,20 +43,24 @@
 
     <div class="span6">
     <?php
-if (($_GET["cadastrar"] != "") and ($_GET["nome"] != "")){
+
+    ini_set('display_errors', true);
+    error_reporting(E_ALL | E_STRICT);
+
+if ((isset($_GET["cadastrar"]) != "") and ($_GET["nome"] != "")){
 
    echo "<script LANGUAGE=\"Javascript\">
 alert(\"Dados enviados com sucesso, abaixo seguem os dados que você enviou.\");
 </SCRIPT>" ;
 }
-    if(($_GET["cadastrar"] != "") and ($_GET["nome"] == "")){
+    if((isset($_GET["cadastrar"]) != "") and ($_GET["nome"] == "")){
 
     echo "<script LANGUAGE=\"Javascript\">
 alert(\"Preencha os campos.\");
 </SCRIPT>" ;
 }
 
-    if(($_GET["cadastrar"] == "Cadastrar") and ($_GET["nome"] != ""))  {
+    if((isset($_GET["cadastrar"]) == "Cadastrar") and ($_GET["nome"] != ""))  {
         echo "<h4>Nome = " . $_GET['nome'] . "<br></h4>";
         echo "<h4>Email = " . $_GET['email'] . "<br></h4>";
         echo "<h4>Assunto = " . $_GET['assunto'] . "<br></h4>";
