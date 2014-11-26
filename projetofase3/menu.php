@@ -1,4 +1,4 @@
-﻿<div align="center">
+﻿<div align="center" id="pagina">
      <ul>
          <a href="home">Home</a>&nbsp;&nbsp;
          <a href="empresa">Empresa</a>&nbsp;&nbsp;

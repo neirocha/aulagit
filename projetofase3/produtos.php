@@ -1,6 +1,10 @@
 <?php //session_start(); ?>
 <div class="container">
     <?php
+	
+	ini_set('display_errors', true);
+    error_reporting(E_ALL | E_STRICT);
+
     require_once("conexaoDB.php");
 
     $conn = conexaoDB();
@@ -16,9 +20,9 @@
 	};
 
    $sql = "select * from paginas where titulo = '$link'";
-   $stmt = $conn->prepare($sql);
+   $stmt = $conn->prepare($sql) or die ("err". $sql);
    $stmt ->execute();
-    $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+   $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach($res  as $result){
 	

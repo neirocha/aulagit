@@ -27,5 +27,7 @@
 	echo "<br><li><div style='font-family:Verdana, Arial, Helvetica, sans-serif; color:#0000FF; font-size:24px; padding-left:309px;'>".$result['texto']."</div></li>";
 
     }
+	
+	
     ?>
 </div>

@@ -5,7 +5,7 @@ return array(
         'host'=>'localhost',
         'dbname'=>'fixture',
         'user'=>'root',
-        'password'=>'1234',
+        'password'=>'',
     )
 )
 

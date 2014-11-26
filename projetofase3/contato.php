@@ -9,6 +9,7 @@
 	
 	$link = $_GET['link'];
 	
+	
 	}else{
 	
 	$link = $_SESSION['link'];

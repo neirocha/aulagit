@@ -8,11 +8,38 @@ $rota = parse_url("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 
 //$path = str_replace("/","",$rota['path']);
 
+?>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Aula de PHP</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/stylos.css">
 
 
+</head>
+
+
+
+
+<?php
 
 
 $path = basename($rota['path']);
+
+
+
+if(isset($_REQUEST['link'])){
+
+$path = $_GET['link'];
+
+
+
+if(!isset($path)){}
+}
+
+
 
 $_SESSION['link'] = $path;
 
@@ -29,21 +56,11 @@ if(($path == "home") or ($path == "contato") or ($path == "empresa") or ($path =
 
 ?>
 
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Aula de PHP</title>
-
-    <link rel="stylesheet" type="text/css" href="css/stylos.css">
-
-
-</head>
-
 <body>
 
 <?php require_once("menu.php"); ?>
 
-<div>
+<div id="pagina">
     <?php require_once($path.".php"); ?>
 </div>
 
