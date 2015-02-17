@@ -1,35 +1,18 @@
-<?php //session_start(); ?>
-<div class="container">
-    <?php
-	
-	ini_set('display_errors', true);
-    error_reporting(E_ALL | E_STRICT);
+<div id="geral">
+       <div id="topo">
+          <h1>Produtos</h1>
+       </div><!--topo-->
+       
+<?php
+ require_once "menu.php";
+?>
+   <br />
+<br />
+ 
+ 
+ <div id="img1"><samp>Produto em promoção </samp><img src="../img/01.jpg" height="70%" width="70%" /></div>
+ <div id="img2"><samp>Produto em promoção </samp><img src="../img/02.jpg"  height="80%" width="80%"/></div> 
+ <div id="img3"><samp>Produto em promoção </samp><img src="../img/03.jpg"  height="80%" width="80%"/></div>
+ <div id="img4"><samp>Produto em promoção </samp><img src="../img/04.png"  height="80%" width="80%"/></div>
 
-    require_once("conexaoDB.php");
-
-    $conn = conexaoDB();
-	
-	if(isset($_GET['link'])){
-	
-	$link = $_GET['link'];
-	
-	}else{
-	
-	$link = $_SESSION['link'];
-	
-	};
-
-   $sql = "select * from paginas where titulo = '$link'";
-   $stmt = $conn->prepare($sql) or die ("err". $sql);
-   $stmt ->execute();
-   $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    foreach($res  as $result){
-	
-	echo "<hr><div style='font-family:Verdana, Arial, Helvetica, sans-serif; color:red; font-size:24px; padding-left:309px;'>".$result['titulo']."</div>";
-
-	echo "<br><li><div style='font-family:Verdana, Arial, Helvetica, sans-serif; color:#0000FF; font-size:24px; padding-left:309px;'>".$result['texto']."</div></li>";
-
-    }
-    ?>
-</div>
+       </div><!--geral-->

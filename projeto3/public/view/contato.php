@@ -1,89 +1,34 @@
-<?php //session_start(); ?>
-<div class="container">
-    <?php
-    require_once("conexaoDB.php");
+<div id="geral">
+       <div id="topo">
+          <h1>Contatos</h1>
+       </div><!--topo-->
+       
+<?php
+ require_once "menu.php";
+?> 
+   <br />
+<br />
+<div id="cadastro">
+ <fieldset>
+    <legend>Formulario de contatos</legend>
+       <form action="#" method="get">
+       <input type="hidden" name="pg" value="contato" />
+            <label class="label"> Nome:<br /> <input type="text" name="nome"  placeholder="Nome"/></label>
+            <label class="label">Email:<br /> <input type="text" name="email" placeholder="Email" /></label>
+            <label class="label">Assunto:<br /> <input type="text" name="assunto"  placeholder="Assunto"/></label>
+            <label class="label">Mensagem:<br /> <textarea cols="55" rows="5"  name="mensagem" placeholder="Mensagem"></textarea></label>
+            <label class="label" id="center"><input type="submit" name="submit" value="Cadastrar"  class="btn btn-primary btn-xs"  name="cadastrar"></label>
+       </form>
+ </fieldset> 
+ </div>  
+ <?php if(isset($_GET['submit'])){?> 
+  <div id="return">
+  <b>Nome:</b> <?php echo $_GET['nome'] ?><br />
+  <b>Email:</b> <?php echo $_GET['email'] ?><br />
+  <b>Assunto:</b> <?php echo $_GET['assunto'] ?><br />
+  <b>Mensagem:</b> <?php echo $_GET['mensagem'] ?>
+  </div>
+<?php } ?>
 
-    $conn = conexaoDB();
-	
-	if(isset($_GET['link'])){
-	
-	$link = $_GET['link'];
-	
-	
-	}else{
-	
-	$link = $_SESSION['link'];
-	
-	};
-
-   $sql = "select * from paginas where titulo = '$link'";
-   $stmt = $conn->prepare($sql);
-   $stmt ->execute();
-    $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    foreach($res  as $result){
-	
-	echo "<hr><div style='font-family:Verdana, Arial, Helvetica, sans-serif; color:pink; font-size:24px; padding-left:309px;'>".$result['titulo']."</div>";
-
-	echo "<br><li><div style='font-family:Verdana, Arial, Helvetica, sans-serif; color:#0000FF; font-size:24px; padding-left:309px;'>".$result['texto']."</div></li>";
-
-    }
-    ?>
-</div>
-
-<hr>
-
-    <div class="container">
-
-
-
-        <div class="row">
-<div class="span6">
-    <form method="get">
-    <table>
-        <tr>
-            <td valign="top">Nome</td><td><input type="text" name="nome"></td>
-        </tr>
-        <tr>
-            <td valign="top">Email</td><td><input type="text" name="email"></td>
-        </tr>
-        <tr>
-            <td valign="top">Assunto</td><td><input type="text" name="assunto"></td>
-        </tr>
-        <tr>
-            <td valign="top">Mensagem</td><td><textarea cols="55" rows="5" name="mensagem"></textarea> </td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="Cadastrar" name="cadastrar"> </td>
-        </tr>
-    </table>
-
-</form>
-</div>
-
-    <div class="span6">
-    <?php
-if ((isset($_GET["cadastrar"]) != "") and ($_GET["nome"] != "")){
-
-   echo "<script LANGUAGE=\"Javascript\">
-alert(\"Dados enviados com sucesso, abaixo seguem os dados que você enviou.\");
-</SCRIPT>" ;
-}
-    if((isset($_GET["cadastrar"]) != "") and ($_GET["nome"] == "")){
-
-    echo "<script LANGUAGE=\"Javascript\">
-alert(\"Preencha os campos.\");
-</SCRIPT>" ;
-}
-
-    if((isset($_GET["cadastrar"]) == "Cadastrar") and ($_GET["nome"] != ""))  {
-        echo "<h4>Nome = " . $_GET['nome'] . "<br></h4>";
-        echo "<h4>Email = " . $_GET['email'] . "<br></h4>";
-        echo "<h4>Assunto = " . $_GET['assunto'] . "<br></h4>";
-        echo "<h4>Mensagem = " . $_GET['mensagem'] . "</h4>";
-    }
-     ?>
-    </div>
-</div>
-</div>
-
+       
+       </div><!--geral-->

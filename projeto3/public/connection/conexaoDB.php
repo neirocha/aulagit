@@ -7,7 +7,7 @@ function conexaoDB()
 {
 
     try {
-        $config = include "config.php";
+        $config = require_once "config.php";
 
         if (!isset($config["db"])) {
 

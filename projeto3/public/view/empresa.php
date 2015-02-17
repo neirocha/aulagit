@@ -1,33 +1,39 @@
-<?php //session_start(); ?>
-<div class="container">
-    <?php
-    require_once("conexaoDB.php");
+<div id="geral">
+       <div id="topo">
+          <h1>Empresa</h1>
+       </div><!--topo-->
+       
+<?php
+ require_once "menu.php";
+?>
+   <br />
+<br />
+ <samp><img src="../img/05.jpg" /></samp>
+ 
 
-    $conn = conexaoDB();
-	
-	if(isset($_GET['link'])){
-	
-	$link = $_GET['link'];
-	
-	}else{
-	
-	$link = $_SESSION['link'];
-	
-	};
+ <div id="abas">
+ <ul>
+    <li>Show room</li>
+    <li>Estacionamento</li>
+    <li>Carga e descarga</li>
+    <li>Delivery</li>
+ </ul>  
+ </div> <br />
+<br />
+<p class="container-fluid">
+<?php
 
-   $sql = "select * from paginas where titulo = '$link'";
-   $stmt = $conn->prepare($sql);
-   $stmt ->execute();
-    $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+include "connection/conexaoDB.php";
 
-    foreach($res  as $result){
-	
-	echo "<hr><div style='font-family:Verdana, Arial, Helvetica, sans-serif; color:#ff00FF; font-size:24px; padding-left:309px;'>".$result['titulo']."</div>";
 
-	echo "<br><li><div style='font-family:Verdana, Arial, Helvetica, sans-serif; color:#0000FF; font-size:24px; padding-left:309px;'>".$result['texto']."</div></li>";
+$conn = conexaoDB();
 
-    }
-	
-	
-    ?>
-</div>
+     $sql = $conn->prepare("SELECT * FROM paginas where titulo='Empresa'");
+			 $sql->execute();
+			 $resu = $sql->fetch(PDO::FETCH_ASSOC);	
+			 		
+			  echo $resu['texto'];
+ 			 
+?> </p>
+
+       </div><!--geral-->
