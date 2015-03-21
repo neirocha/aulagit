@@ -74,7 +74,7 @@ $cliente9	->nome=	"Natali";
 $cliente9	->cpf=	"012.345.678.-90";
 $cliente9	->endereco=	"Rua amargosa";
 $cliente9	->telefone=	"71 3358-6523";
-
+/*
 $cli0 = array(0 => $cliente0->nome, 1 => $cliente0->cpf, 2 => $cliente0->endereco,3  => $cliente0->telefone);
 $cli1 = array(0 => $cliente1->nome, 1 => $cliente1->cpf, 2 => $cliente1->endereco,3  => $cliente1->telefone);
 $cli2 = array(0 => $cliente2->nome, 1 => $cliente2->cpf, 2 => $cliente2->endereco,3  => $cliente2->telefone);
@@ -85,8 +85,34 @@ $cli6 = array(0 => $cliente6->nome, 1 => $cliente6->cpf, 2 => $cliente6->enderec
 $cli7 = array(0 => $cliente7->nome, 1 => $cliente7->cpf, 2 => $cliente7->endereco,3  => $cliente7->telefone);
 $cli8 = array(0 => $cliente8->nome, 1 => $cliente8->cpf, 2 => $cliente8->endereco,3  => $cliente8->telefone);
 $cli9 = array(0 => $cliente9->nome, 1 => $cliente9->cpf, 2 => $cliente9->endereco,3  => $cliente9->telefone);
+*/
+//$clientes = array($cli0, $cli1, $cli2, $cli3, $cli4, $cli5, $cli6, $cli7, $cli8, $cli9);
 
-$clientes = array($cli0, $cli1, $cli2, $cli3, $cli4, $cli5, $cli6, $cli7, $cli8, $cli9);
+$clientes = array($cliente0, $cliente1, $cliente2, $cliente3, $cliente4, $cliente5, $cliente6, $cliente7, $cliente8, $cliente9);
 
+
+echo "<a href='?order=arsort'>ascendente</a> / <a href='?order=asort'>descendente</a><br><br>";
+
+
+if(isset($_GET['order']))
+{
+
+
+    $_GET['order']($clientes);//decrescente
+}
+
+
+//asort($clientes);//crescente
+$conta = -1;
+foreach($clientes as $cliente) {
+$conta++;
+    echo "<a href='?id=$conta'>" . $cliente->nome . "</a><br>";
+
+}
+
+if(isset($_GET['id']))
+{
+    var_dump($clientes[$_GET['id']]);
+}
 ?>
 
