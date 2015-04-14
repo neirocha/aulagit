@@ -1,14 +1,14 @@
 <?php
-namespace CadastroCliente;
-use CadastroCliente\EndCobranca;
-use CadastroCliente\Classificacao;
-use CadastroCliente\Clientes;
+namespace Clientes;
+use Clientes\BillingAddress;
+use Clientes\Classifiable;
+use Clientes\Cliente;
 /**
  * Class PJ
  *
  * Pessoa Juridica
  */
-class ClienteJuridico extends Clientes implements EndCobranca, Classificacao
+class PJ extends Cliente implements BillingAddress, Classifiable
 {
     /**
      * Razão Social
